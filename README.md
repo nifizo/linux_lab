@@ -86,9 +86,3 @@ docker/
    cd docker/caddy
    docker compose exec caddy caddy reload --config /etc/caddy/Caddyfile
    ```
-
-## ⚠️ Warnings Regarding `.env` and Secrets
-
-- The files presented here are **templates** and contain placeholder values (e.g., `${DOMAIN}`). 
-- **NEVER** store real passwords, API keys, certificates, exact IP addresses, or private domains in public repositories.
-- To pass secrets into Docker Compose, always use `.env` files (which must be added to `.gitignore`) or the Docker Secrets mechanism.
