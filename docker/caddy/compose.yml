@@ -1,0 +1,26 @@
+services:
+  caddy:
+    image: caddy:2
+    container_name: caddy
+    restart: unless-stopped
+
+    ports:
+      - "80:80"
+      - "443:443"
+
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - ./site:/srv:ro
+      - caddy_config:/config
+
+    networks:
+      - lab_net
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  lab_net:
+    external: true
